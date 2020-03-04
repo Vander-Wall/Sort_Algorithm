@@ -48,19 +48,25 @@ void merge_sort(int arr[],int L,int R){
     int M = (L + R) /2;
     merge_sort(arr, L, M);
     merge_sort(arr, M + 1, R);
-    merge(arr,L,M+1,R);
+    merge(arr,L,M+1,R);  // 这里M+1才能跟merge里的M保持一致
 }
 
 int main()
 {
-	int arr[] = {-2312, 32318, 449, 0, -4, 31235, 6, 7};
-	int L = 0;
+	//int arr[] = {-2312, 32318, 449, 0, -4, 31235, 6, 7};
+	int arr[999];int n;
+	while(~scanf("%d",&n)){
+        for(int i = 0;i < n; i++)
+            scanf("%d",&arr[i]);
 
-	int R = sizeof(arr)/sizeof(int) - 1;
-	printf("R=%d\n",R);
-	//getchar();
-	merge_sort(arr, L, R);
-	for(int i = 0; i <= R;i++)
-        printf("%d\n",arr[i]);
+        int L = 0;
+
+        int R = n - 1;
+        printf("R=%d\n",R);
+        //getchar();
+        merge_sort(arr, L, R);
+        for(int i = 0; i <= R;i++)
+            printf("%d\n",arr[i]);
+    }
 	return 0;
 }
